@@ -1,0 +1,141 @@
+//Calculation game 
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+using namespace std;
+int a,b,c,as,i=1,scores=0;
+void ask();
+void add();
+void sub();
+void mul();
+void divi();
+void ran();
+void score();
+
+void ran()
+{
+    srand(time(0));
+    a=rand()%100;
+    b=rand()%100;
+}
+void score()
+{
+    cout<<"---------------------------------------"<<endl;
+    cout<<"Your "<<scores<<" answers are correct"<<endl;
+    cout<<"Your total score is:"<<scores<<endl;
+    cout<<"======================================="<<endl;
+}
+void ask()
+{
+    if(as==1)
+    {
+        add();
+    }
+    else if(as==2)
+    {
+        sub();
+    }
+    else if(as==3)
+    {
+        mul();
+    }
+    else if(as==4)
+    {
+        divi();
+    }
+    else
+        cout<<"Enter a valid number"<<endl;
+}
+void add()
+{
+    cout<<i++<<"] "<<a<<"+"<<b<<endl;
+    cout<<"ans: ";
+    cin>>c;
+    if(c==a+b)
+    {
+        cout<<"its correct"<<endl;
+        cout<<"---------------------------------------"<<endl;
+        scores++;
+        ran();
+        ask();
+    }
+    else
+    {
+        cout<<"its wrong"<<endl;
+        cout<<"The correct ans is "<<a+b<<endl;
+        score();
+    }
+}
+void sub()
+{
+    cout<<i++<<"] "<<a<<"-"<<b<<endl;
+    cout<<"ans: ";
+    cin>>c;
+    if(c==a-b)
+    {
+        cout<<"its correct"<<endl;
+        cout<<"---------------------------------------"<<endl;
+        scores++;
+        ran();
+        ask();
+    }
+    else
+    {
+        cout<<"its wrong"<<endl;
+        cout<<"The correct ans is "<<a-b<<endl;
+        score();
+    }
+}
+void mul()
+{
+    cout<<i++<<"] "<<a<<"*"<<b<<endl;
+    cout<<"ans: ";
+    cin>>c;
+    if(c==a*b)
+    {
+        cout<<"its correct"<<endl;
+        cout<<"---------------------------------------"<<endl;
+        scores++;
+        ran();
+        ask();
+    }
+    else
+    {
+        cout<<"its wrong"<<endl;
+        cout<<"The correct ans is "<<a*b<<endl;
+        score();
+    }
+}
+void divi()
+{
+    cout<<i++<<"] "<<a<<"/"<<b<<endl;
+    cout<<"ans: ";
+    cin>>c;
+    if(c==a/b)
+    {
+        cout<<"its correct"<<endl;
+        cout<<"---------------------------------------"<<endl;
+        scores++;
+        ran();
+        ask();
+    }
+    else
+    {
+        cout<<"its wrong"<<endl;
+        cout<<"The correct ans is "<<a/b<<endl;
+        score();
+    }
+}
+int main() {
+    ran();
+    cout<<"Enter the operation no. you want to do: "<<endl;
+    cout<<"Press 1 for addition "<<endl;
+    cout<<"Press 2 for subtraction "<<endl;
+    cout<<"Press 3 for multiplication "<<endl;
+    cout<<"Press 4 for divition "<<endl;
+    cout<<"Choose an option : ";
+    cin>>as;
+    cout<<"---------------------------------------"<<endl;
+    ask();
+    return 0;
+}
